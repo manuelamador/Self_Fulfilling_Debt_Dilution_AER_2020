@@ -95,7 +95,7 @@ The momens are:
     7. vol Spread: SD[(1+r(y,A'))^4-(1+r)^4] when the country has been out of 
        default long enough and does not default today.
 
-    8. vol C over Y: SD[ln(c)]/V[ln(y+m)] when the country has been out of 
+    8. vol C over Y: SD[ln(c)]/SD[ln(y+m)] when the country has been out of 
        default long enough and does not default today.
 
     9. vol TB: SD[(y+m-c)/(y+m)] when the country has been out of default long 
