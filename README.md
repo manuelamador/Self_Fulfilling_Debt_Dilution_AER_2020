@@ -9,8 +9,6 @@ The authors (Mark Aguiar and Manuel Amador) are grateful for the fantastic resea
 Stelios Fourakis in writing and testing this code. All remaining errors are the responsibility 
 of the authors.
 
-An up-to-date version of this repository can be found in https://amadormanuel.me/code/
-
 ## Folder structure 
 
 The folder structure is as follows:
