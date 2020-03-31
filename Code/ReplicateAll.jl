@@ -62,12 +62,15 @@ if par.benchmark_maturity in matListBorrowingEqm
     makeFigures(par, par.benchmark_maturity, "borrowing")
 end
 
-# Testing existence for other maturity levels (this can take a long time)
+# Testing existence for additional maturity parameters 
+# This takes a long time
+#
 println("\n\n\n")
 println("Looking for equilibria for many maturities. This takes a long time.")
 
-# maturity range -- this corresponds to 1/delta
+# additional maturity range -- this corresponds to 1/delta
 matList = [2.0, 9.0, 10.0, 30.0, 33.0, 35.0] 
+# matList = collect(1.0:35.0)  # <- this takes considerably longer to compute.
 
 #  Looking for a savings equilibrium
 matListSavingsEqm, = find_savings_equilibria(

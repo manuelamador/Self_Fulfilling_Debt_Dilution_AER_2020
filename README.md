@@ -72,7 +72,7 @@ The moments used to construct the tables in the paper are saved in the
 `Output/Moments` directory. Each moments file contains two columns. 
 The first represents the moments using the full sample. 
 The second column represents the moments using excluding the disaster states. 
-The momens are:
+The moments are:
 
     1. mean A' over Y no default: E[A'/(y+m)] when the country has been out of default long 
        enough and does not default today.
@@ -122,8 +122,9 @@ end of period assets.
 ## Timing
 
 The code was ran and tested in Amazon Web Services (AWS) using a 
-c4.4xlarge linux instance with 16 virtual CPUs. 
+c4.4xlarge linux instance with 16 virtual CPUs and approximately 32GB of RAM.
 
 The main part of the code (the computation of the equilibria for the benchmark
-maturity of 1/20.0) ran under 1h40minutes.
+maturity of 1/20.0) ran under 1h40minutes. The entire code including the 
+additional computations with 6 more maturities run just under 17h.
 
