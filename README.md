@@ -121,7 +121,7 @@ end of period assets.
 
 ## Timing
 
-The code was ran and tested in Amazon Web Services (AWS) using a 
+The code was tested in Amazon Web Services (AWS) using a 
 c4.4xlarge linux instance with 16 virtual CPUs and approximately 32GB of RAM.
 
 The main part of the code (the computation of the equilibria for the benchmark
