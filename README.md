@@ -126,5 +126,5 @@ c4.4xlarge linux instance with 16 virtual CPUs and approximately 32GB of RAM.
 
 The main part of the code (the computation of the equilibria for the benchmark
 maturity of 1/20.0) ran under 1h40minutes. The entire code including the 
-additional computations with 6 more maturities run just under 17h.
+additional computations with 6 more maturities ran just under 17h.
 
