@@ -9,6 +9,22 @@ The authors (Mark Aguiar and Manuel Amador) are grateful for the fantastic resea
 Stelios Fourakis in writing and testing this code. All remaining errors are the responsibility 
 of the authors.
 
+## Summary 
+
+This repository contains the code to generate the numerical simulation results
+presented in Section 8 and Appendix E. The present code generates the four
+figures contained in Appendix E as well as the corresponding table of moments. 
+
+_NOTE:_ The other figures in the paper are not the result of this numerical 
+simulation, and were directly obtained from the closed-form formulas detailed 
+in the paper using the parameters values specified in the caption for each 
+figure. 
+
+An up-to-date version of this repository can be found in: 
+
+https://github.com/manuelamador/Self_Fulfilling_Debt_Dilution_AER_2020
+
+
 ## Folder structure 
 
 The folder structure is as follows:
@@ -64,15 +80,37 @@ following command at the julia REPL prompt:
 
 ## Other relevant files 
 
+### Parameters
+
 `Parameters.jl` contains the parameters used for the simulations. 
 
-The figures shown in the paper are saved in the `Output/Figures` directory. 
+### Figures 
 
-The moments used to construct the tables in the paper are saved in the 
-`Output/Moments` directory. Each moments file contains two columns. 
-The first represents the moments using the full sample. 
-The second column represents the moments using excluding the disaster states. 
-The moments are:
+The figures shown in the paper are saved in the `Output/Figures` directory:
+
+   1. `pol_S_plot.pdf`: Corresponds to panel (a) of the figure "Simulation Results: Policy Functions"
+   2. `pol_B_plot.pdf`: Corresponds to panel (b) of the figure "Simulation Results: Policy Functions"
+   3. `price_S_plot.pdf` : Corresponds to panel (a) of the figure "Simulation Results: Price Functions"
+   4. `price_B_plot.pdf`: Corresponds to panel (b) of the figure "Simulation Results: Price Functions"
+
+The function `makeFigures` defined in `makeFigures.jl` generates these figures using as an 
+input the computation results stored in `Output/Models` and `Output/Policies`.
+
+### Moments
+
+The moments used to construct the table in the paper are saved in the 
+`Output/Moments` directory. The corresponding moment files are:
+
+   1. `mat_20.0_savings_moments`: Contains the moments for the savings equilibrium.
+   2. `mat_20.0_borrowing_moments`: Contains the moments for the borrowing equilibrium. 
+
+The functions `save_policy_moments_savings` and `save_policy_moments_borrowing`
+defined in `PolicyAndMoments.jl` use previous computations to simulate the
+model and compute and save the moments. 
+
+Each moment file contains two columns. The first represents the moments using
+the full sample. The second column represents the moments using excluding the
+disaster states. The moments are:
 
     1. mean A' over Y no default: E[A'/(y+m)] when the country has been out of default long 
        enough and does not default today.
@@ -95,7 +133,7 @@ The moments are:
     7. vol Spread: SD[(1+r(y,A'))^4-(1+r)^4] when the country has been out of 
        default long enough and does not default today.
 
-    8. vol C over Y: SD[ln(c)]/SD[ln(y+m)] when the country has been out of 
+    8. vol C over Y: SD[ln(c)]/V[ln(y+m)] when the country has been out of 
        default long enough and does not default today.
 
     9. vol TB: SD[(y+m-c)/(y+m)] when the country has been out of default long 
@@ -126,5 +164,5 @@ c4.4xlarge linux instance with 16 virtual CPUs and approximately 32GB of RAM.
 
 The main part of the code (the computation of the equilibria for the benchmark
 maturity of 1/20.0) ran under 1h40minutes. The entire code including the 
-additional computations with 6 more maturities ran just under 17h.
+additional computations with additional maturities ran just under 17h.
 
