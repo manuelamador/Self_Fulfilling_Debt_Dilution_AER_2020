@@ -12,17 +12,16 @@ of the authors.
 ## Summary 
 
 This repository contains the code to generate the numerical simulation results
-presented in Section 8 and Appendix E. The present code generates the four
-figures contained in Appendix E as well as the corresponding table of moments. 
+presented in Section 8 and Appendix E. The present code generates the four plots shown 
+in the two figures contained in Appendix E as well as the corresponding table of moments. 
 
-_NOTE:_ The other figures in the paper are not the result of this numerical 
-simulation, and were directly obtained from the closed-form formulas detailed 
-in the paper using the parameters values specified in the caption for each 
-figure. 
+_NOTE:_ The other figures in the paper are not the result of this numerical
+simulation, and were directly obtained from closed-form formulas using the
+parameter values specified in the caption for each figure. 
 
 An up-to-date version of this repository can be found in: 
 
-https://github.com/manuelamador/Self_Fulfilling_Debt_Dilution_AER_2020
+[https://github.com/manuelamador/Self_Fulfilling_Debt_Dilution_AER_2020](https://github.com/manuelamador/Self_Fulfilling_Debt_Dilution_AER_2020)
 
 
 ## Folder structure 
@@ -39,7 +38,7 @@ The folder structure is as follows:
 
 ## Running the code
 
-The code is in Julia: https://julialang.org/
+The code is in Julia: [https://julialang.org/](https://julialang.org/)
 
 The main source file is `ReplicateAll.jl`. This script runs the simulations for
 both the borrowing and the saving equilibrium and generates the moments
@@ -62,11 +61,12 @@ directory structure shown above.
 
 _WARNING:_ Make sure that you allow Julia to use multiple threads: 
 
-https://docs.julialang.org/en/v1/manual/parallel-computing/
+[https://docs.julialang.org/en/v1/manual/parallel-computing/](https://docs.julialang.org/en/v1/manual/parallel-computing/)
 
 
 _WARNING:_ For the figures, you need a working latex installation (see 
-https://kristofferc.github.io/PGFPlotsX.jl/stable/).  In case you do not 
+[https://kristofferc.github.io/PGFPlotsX.jl/stable/](https://kristofferc.github.io/PGFPlotsX.jl/stable/)). 
+In case you do not 
 have one, comment out the calls to `makeFigures` in the `ReplicateAll.jl` 
 script in lines 57 and 70 before running the script.
 
@@ -101,8 +101,8 @@ input the computation results stored in `Output/Models` and `Output/Policies`.
 The moments used to construct the table in the paper are saved in the 
 `Output/Moments` directory. The corresponding moment files are:
 
-   1. `mat_20.0_savings_moments`: Contains the moments for the savings equilibrium.
-   2. `mat_20.0_borrowing_moments`: Contains the moments for the borrowing equilibrium. 
+   1. `mat_20.0_savings_moments.csv`: Contains the moments for the savings equilibrium.
+   2. `mat_20.0_borrowing_moments.csv`: Contains the moments for the borrowing equilibrium. 
 
 The functions `save_policy_moments_savings` and `save_policy_moments_borrowing`
 defined in `PolicyAndMoments.jl` use previous computations to simulate the
@@ -112,44 +112,44 @@ Each moment file contains two columns. The first represents the moments using
 the full sample. The second column represents the moments using excluding the
 disaster states. The moments are:
 
-    1. mean A' over Y no default: E[A'/(y+m)] when the country has been out of default long 
-       enough and does not default today.
+  1. _mean A' over Y no default_: `E[A'/(y+m)]` when the country has been out of default long 
+     enough and does not default today.
 
-    2. mean market value over Y: E[q(y,A')*A'/(y+m)] when the country has been out of default 
-       long enough and does not default today.
+  2. _mean market value over Y_: `E[q(y,A')*A'/(y+m)]` when the country has been out of default 
+     long enough and does not default today.
 
-    3. mean A over Y no default: E[A/(y+m)] when the country has been out of default long 
-       enough and does not default today.
+  3. _mean A over Y no default_: `E[A/(y+m)]` when the country has been out of default long 
+     enough and does not default today.
 
-    4. mean A over Y: E[A/(y+m)] when the country has been out of default 
-       long enough up until today.
+  4. _mean A over Y_: `E[A/(y+m)]` when the country has been out of default 
+     long enough up until today.
 
-    5. def Rate: E[d] when the country has been out of default long enough 
-       up until today.
+  5. _def Rate_: `E[d]` when the country has been out of default long enough 
+     up until today.
 
-    6. mean Spread: E[(1+r(y,A'))^4-(1+r)^4] when the country has been out of 
-       default long enough and does not default today.
+  6. _mean Spread_: `E[(1+r(y,A'))^4-(1+r)^4]` when the country has been out of 
+     default long enough and does not default today.
 
-    7. vol Spread: SD[(1+r(y,A'))^4-(1+r)^4] when the country has been out of 
-       default long enough and does not default today.
+  7. _vol Spread_: `SD[(1+r(y,A'))^4-(1+r)^4]` when the country has been out of 
+     default long enough and does not default today.
 
-    8. vol C over Y: SD[ln(c)]/V[ln(y+m)] when the country has been out of 
-       default long enough and does not default today.
+  8. _vol C over Y_: `SD[ln(c)]/V[ln(y+m)]` when the country has been out of 
+     default long enough and does not default today.
 
-    9. vol TB: SD[(y+m-c)/(y+m)] when the country has been out of default long 
-       enough and does not default today.
+  9. _vol TB_: `SD[(y+m-c)/(y+m)]` when the country has been out of default long 
+     enough and does not default today.
 
-    10. cor TB with Log Y: corr[(y+m-c)/(y+m),ln(y+m)] when the country has been out of 
-        default long enough and does not default today.
+  10. _cor TB with Log Y_: `corr[(y+m-c)/(y+m),ln(y+m)]` when the country has been out of 
+      default long enough and does not default today.
 
-    11. cor Spread with Log Y: corr[(1+r(y,A'))^4-(1+r)^4,ln(y+m)] when the country has 
-        been out of default long enough and does not default today.
+  11. _cor Spread with Log Y_: `corr[(1+r(y,A'))^4-(1+r)^4,ln(y+m)]` when the country has 
+      been out of default long enough and does not default today.
 
-    12. cor Spread with A / Y: corr[(1+r(y,A'))^4-(1+r)^4,A'/(y+m)] when the country 
-        has been out of default long enough and does not default today.
+  12. _cor Spread with A / Y_: `corr[(1+r(y,A'))^4-(1+r)^4,A'/(y+m)]` when the country 
+      has been out of default long enough and does not default today.
 
-    13. cor Spread with TB: corr[(1+r(y,A'))^4-(1+r)^4, (y+m-c)/(y+m) ] when the 
-        country has been out of default long enough and does not default today.
+  13. _cor Spread with TB_: `corr[(1+r(y,A'))^4-(1+r)^4, (y+m-c)/(y+m)]` when the 
+      country has been out of default long enough and does not default today.
 
 NOTE: the code is written where `A` represents assets. The paper instead uses 
 the convention and writes the relevant moments and figures using debt, `b = -a`. 
